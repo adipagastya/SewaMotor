@@ -13,13 +13,13 @@
             android:name=".BerandaActivity"
             android:label="@string/title_activity_beranda"
             android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".DaftarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".DaftarActivity">
         </activity>
         <activity android:name=".MainActivity">
         </activity>
