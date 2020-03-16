@@ -7,4 +7,6 @@
     <color name="red">#DA2D2D</color>
     <color name="maroon">#9B090A</color>
     <color name="yellow">#F6DA64</color>
+    <color name="black">#000000</color>
+    <color name="grey">#625728</color>
 </resources>

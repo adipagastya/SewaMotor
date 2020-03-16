@@ -13,6 +13,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -20,24 +22,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ImageView;
 
 public class BerandaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    CarouselView carouselView;
+    int[] sampleImages = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda);
+        setTitle("Sewa Motor");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,6 +44,11 @@ public class BerandaActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        carouselView = (CarouselView) findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+
+        carouselView.setImageListener(imageListener);
     }
 
     @Override
@@ -57,26 +61,18 @@ public class BerandaActivity extends AppCompatActivity
         }
     }
 
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.beranda, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
