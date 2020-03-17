@@ -9,18 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailBooking">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
-        <activity android:name=".ProsesBooking">
+            </intent-filter>
         </activity>
+        <activity android:name=".DetailBooking" />
+        <activity android:name=".ProsesBooking"></activity>
         <activity android:name=".ListBooking" />
         <activity android:name=".ListKendaraan" />
         <activity android:name=".ListTempat" />
-        <activity android:name=".DetailKendaraan"></activity>
+        <activity android:name=".DetailKendaraan" />
         <activity android:name=".DetailTempat" />
         <activity
             android:name=".BerandaActivity"
